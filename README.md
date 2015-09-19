@@ -44,7 +44,7 @@ $ protractor conf.js
 $ protractor conf.js --elementExplorer
 
 ### Locators 
-[https://angular.github.io/protractor/#/locators(https://angular.github.io/protractor/#/locators)]
+[https://angular.github.io/protractor/#/locators](https://angular.github.io/protractor/#/locators)
 Locator tell protractor how to find certain DOM Element
 
 ``` javascript
@@ -82,7 +82,7 @@ element(by.css('my-css'));
 
 ### Actions
 
-The element() function returns an ElementFinder object. The ElementFinder knows how to locate the DOM element using the locator you passed in as a parameter.
+The `element()` function returns an ElementFinder object. The ElementFinder knows how to locate the DOM element using the locator you passed in as a parameter.
 
 ```
 var el = element(locator);

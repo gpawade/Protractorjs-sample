@@ -1,29 +1,14 @@
-var CalPage = function(){
-	this.txtNum1 =  element(by.css('#number1'));
-	this.txtNum2 = element(by.css('#number2'));
-
-	this.result = element(by.css('#result'));
-
-	this.get = function() {
-	    browser.get('http://127.0.0.1:8080/index.html');
-	};
-
-	this.getPageTitle = function(){
-		return browser.getTitle();
-	};
-
-	this.addClick = function(){
-		element(by.css('#btnAdd')).click();
-	};
-}
 
 
+var CalPage = require('./po/indexPage.js');
 describe("protractor test with calculator", function(){
 	var calPage = new CalPage();
-
+	var pageLoadedStatus = false;
 	beforeEach(function(){
-
-		calPage.get();
+		if(!pageLoadedStatus){
+			calPage.get();
+			pageLoadedStatus = false;
+		}
 	});
 
 	it('should have a title', function(){
@@ -59,6 +44,12 @@ describe("protractor test with calculator", function(){
 		calPage.addClick();
 
 		expect(calPage.result.getText()).toEqual('24');
+
+		/*browser.driver.wait(function() {
+            return calPage.result.getText().then(function(val) {
+                return (/5/).test(val);
+            });
+        });*/
 
 	});
 
